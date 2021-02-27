@@ -1,0 +1,26 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.parallax {
+  margin: 0;
+  padding: 0;
+  -webkit-perspective: 1px;
+          perspective: 1px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: rgba(230, 230, 230, 0.92) !important;
+  padding: 10px 20px;
+}
+
+.navbar a:hover {
+  color: #be0000 !important;
+}
+/*# sourceMappingURL=style.css.map */
