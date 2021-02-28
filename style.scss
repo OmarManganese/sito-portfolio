@@ -1,5 +1,10 @@
 $primary-color: #be0000;
 
+@mixin shadow {
+    box-shadow: 1px 1px 8px #000000a1;   
+}
+
+
 html, body {
     height: 100%;
     overflow: hidden;  
@@ -24,3 +29,47 @@ html, body {
     }
 }
 
+.navbar-compensation {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+
+.parallax-container {
+    min-height: calc(100vh - 60px);
+}
+
+img {
+    display: block;
+    width: 70%;
+    margin: 20px auto;
+    @include shadow; 
+}
+
+@media only screen and 
+    (max-width: 991px) and
+    (orientation: landscape) {
+        img {
+             width: 44%;                            
+        }
+    }
+
+.content {
+    width: 95%;
+    margin: 0 auto 20px auto;
+    background: #f0f0f0;
+    @include shadow;
+    padding: 30px; 
+ }
+
+@media only screen and (min-width: 992px) {
+    .content {
+         width: 80%;
+         margin: 20px auto;
+    }
+
+    img {
+         width: 80%;
+    }
+ }
+
+ 
