@@ -1,7 +1,6 @@
 $primary-color: #be0000;
 $perspective: 1px;
-$distance: .25px;
-$distance-1: .25px;
+$distance-h1: .25px;
 $distance-y-1: 0;
 $distance-y-2: -40%;
 $distance-y-3: -100%;
@@ -94,7 +93,7 @@ p {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%)
-                    translateZ($distance-1) scale(($perspective - $distance-1) / $perspective);
+                    translateZ($distance-h1) scale(($perspective - $distance-h1) / $perspective);
    
         font-size: calc(4rem + 5vw);
         color: $primary-color;
@@ -140,6 +139,37 @@ p {
 
 .photo-container {
     margin-bottom: -25vh;
+}
+
+#coming-soon {
+    background-color: #1e1e1e;
+
+    h1 {
+        text-align: center;
+        font-size: calc(3rem + 3vw);
+        color: $primary-color;       
+    }
+}
+
+.parallax-logos {
+    
+    width: 25vh;
+}
+
+img.logo {  
+    width: 25vh;
+    height: auto;
+        
+}
+
+@for $i from 1 through 10 {
+    $distance-z-logo: $i * 0.05px;
+
+    img.logo-#{$i}{
+        transform: translateY($i * -20%)
+                   translateZ($distance-z-logo)
+                   scale(($perspective - $distance-z-logo) / $perspective);        
+    }
 }
 
 @media only screen and 

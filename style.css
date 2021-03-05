@@ -120,6 +120,75 @@ p {
   margin-bottom: -25vh;
 }
 
+#coming-soon {
+  background-color: #1e1e1e;
+}
+
+#coming-soon h1 {
+  text-align: center;
+  font-size: calc(3rem + 3vw);
+  color: #be0000;
+}
+
+.parallax-logos {
+  width: 25vh;
+}
+
+img.logo {
+  width: 25vh;
+  height: auto;
+}
+
+img.logo-1 {
+  -webkit-transform: translateY(-20%) translateZ(0.05px) scale(0.95);
+          transform: translateY(-20%) translateZ(0.05px) scale(0.95);
+}
+
+img.logo-2 {
+  -webkit-transform: translateY(-40%) translateZ(0.1px) scale(0.9);
+          transform: translateY(-40%) translateZ(0.1px) scale(0.9);
+}
+
+img.logo-3 {
+  -webkit-transform: translateY(-60%) translateZ(0.15px) scale(0.85);
+          transform: translateY(-60%) translateZ(0.15px) scale(0.85);
+}
+
+img.logo-4 {
+  -webkit-transform: translateY(-80%) translateZ(0.2px) scale(0.8);
+          transform: translateY(-80%) translateZ(0.2px) scale(0.8);
+}
+
+img.logo-5 {
+  -webkit-transform: translateY(-100%) translateZ(0.25px) scale(0.75);
+          transform: translateY(-100%) translateZ(0.25px) scale(0.75);
+}
+
+img.logo-6 {
+  -webkit-transform: translateY(-120%) translateZ(0.3px) scale(0.7);
+          transform: translateY(-120%) translateZ(0.3px) scale(0.7);
+}
+
+img.logo-7 {
+  -webkit-transform: translateY(-140%) translateZ(0.35px) scale(0.65);
+          transform: translateY(-140%) translateZ(0.35px) scale(0.65);
+}
+
+img.logo-8 {
+  -webkit-transform: translateY(-160%) translateZ(0.4px) scale(0.6);
+          transform: translateY(-160%) translateZ(0.4px) scale(0.6);
+}
+
+img.logo-9 {
+  -webkit-transform: translateY(-180%) translateZ(0.45px) scale(0.55);
+          transform: translateY(-180%) translateZ(0.45px) scale(0.55);
+}
+
+img.logo-10 {
+  -webkit-transform: translateY(-200%) translateZ(0.5px) scale(0.5);
+          transform: translateY(-200%) translateZ(0.5px) scale(0.5);
+}
+
 @media only screen and (max-width: 991px) and (orientation: landscape) {
   .photo {
     width: 40%;
