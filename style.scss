@@ -10,6 +10,9 @@ $distance-z-3: .4px;
 $rotation-1: -5deg;
 $rotation-2: 2deg;
 $rotation-3: 7deg;
+$calling-card-w-1: 70%;
+$calling-card-w-2: 40%;
+$calling-card-aspect-raio: .6;
 
 @mixin shadow {
     box-shadow: 1px 1px 8px #000000a1;   
@@ -20,6 +23,16 @@ $rotation-3: 7deg;
                translateZ($distance-z)
                scale(($perspective - $distance-z) / $perspective)
                rotate($rotation);   
+}
+
+@mixin absolute-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+}
+
+@mixin cc-background-color {
+    background-color:  #eeeeee;
 }
 
 
@@ -151,25 +164,66 @@ p {
     }
 }
 
-.parallax-logos {
-    
-    width: 25vh;
-}
-
-img.logo {  
+img.logo {
+    display: block;
     width: 25vh;
     height: auto;
-        
+    margin: 0 auto;      
 }
 
 @for $i from 1 through 10 {
     $distance-z-logo: $i * 0.05px;
 
-    img.logo-#{$i}{
-        transform: translateY($i * -20%)
-                   translateZ($distance-z-logo)
+    img.logo-#{$i}{       
+        transform: translateZ($distance-z-logo)
                    scale(($perspective - $distance-z-logo) / $perspective);        
     }
+}
+
+#contatti .parallax-container {
+    perspective: 1000px;
+}
+
+.calling-card {
+    position: absolute;
+    @include absolute-center;
+    width: $calling-card-w-1;
+    padding-top: $calling-card-w-1 * $calling-card-aspect-raio;
+    @include shadow;
+    transition: 1s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.cc-side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include absolute-center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    h1 {
+        position: absolute;
+        @include absolute-center;
+    }
+}
+
+.cc-front {
+    z-index: 2;
+    @include cc-background-color;   
+}
+
+.cc-back {
+    transform-origin: 50% 50%;
+    transform: rotateY(180deg);
+    z-index: 0;
+    @include cc-background-color;
+}
+
+
+.calling-card:hover {
+    transform-origin: 50% 50%;
+    transform: rotateY(180deg);
 }
 
 @media only screen and 
@@ -195,7 +249,8 @@ img.logo {
         width: 80%;
         transform-origin: 100% 50%;
     }
-    section .row:nth-of-type(2n) > {
+    
+    section.photo-alternate .row:nth-of-type(2n) > {
         div:nth-of-type(1) {
             order: 1;
 
@@ -207,6 +262,41 @@ img.logo {
         div:nth-of-type(2) {
             order: 0;
         }
+    }
+
+    @for $i from 1 through 3 {
+        @for $j from 1 through $i {
+            $mv: 20px;
+            $ml: auto;
+            $mr: auto;      
+    
+            @if $i == 2 {
+                @if $j == 1 {
+                    $mr: 10px;
+                }
+                @if $j == 2 {
+                    $ml: 10px;
+                }
+            }
+    
+            @if $i == 3 {
+                @if $j == 1 {
+                    $mr: 10px;
+                }
+                @if $j == 3 {
+                    $ml: 10px;
+                }
+            }
+    
+            img.logo-#{$j}-of-#{$i} {
+                margin: $mv $mr $mv $ml;
+            }
+        } 
+    }
+
+    .calling-card {
+        width: $calling-card-w-2;
+        padding-top: $calling-card-w-2 * $calling-card-aspect-raio;
     }
 }
 
