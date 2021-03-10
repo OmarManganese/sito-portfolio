@@ -10,12 +10,21 @@ $distance-z-3: .4px;
 $rotation-1: -5deg;
 $rotation-2: 2deg;
 $rotation-3: 7deg;
-$calling-card-w-1: 70%;
-$calling-card-w-2: 40%;
-$calling-card-aspect-raio: .6;
+
+$cc-w-rel: 100vw * .7;
+$cc-w-abs: 500px;
+$cc-aspect-ratio: .6;
+$cc-h1-w-factor: .8 / 4;
+$cc-a-w-factor: .8 / 13;
+
+
 
 @mixin shadow {
     box-shadow: 1px 1px 8px #000000a1;   
+}
+
+@mixin background-color {
+    background-color:  #f0f0f0;
 }
 
 @mixin move($distance-y, $distance-z, $rotation) {
@@ -30,11 +39,6 @@ $calling-card-aspect-raio: .6;
     left: 50%;
     transform: translate(-50%, -50%);    
 }
-
-@mixin cc-background-color {
-    background-color:  #eeeeee;
-}
-
 
 html, body {
     height: 100%;
@@ -155,7 +159,7 @@ p {
 }
 
 #coming-soon {
-    background-color: #1e1e1e;
+    background-color: #c9c9c9;
 
     h1 {
         text-align: center;
@@ -189,8 +193,8 @@ img.logo {
 
 .calling-card {
     position: relative;
-    width: $calling-card-w-1;
-    padding-top: $calling-card-w-1 * $calling-card-aspect-raio;
+    width: $cc-w-rel;
+    height: $cc-w-rel * $cc-aspect-ratio;
     @include shadow;
     transition: 1s ease-in-out;
     transform-style: preserve-3d;
@@ -206,17 +210,15 @@ img.logo {
     backface-visibility: hidden;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     
     h1 {
+        font-size: $cc-w-rel * $cc-h1-w-factor;
         color: $primary-color;
-        font-size: calc(3rem + .3vw);
     }
-
-    a {
-        width: 20%;
-    }
+   
+    
 
     img {
         width: 100%;
@@ -225,18 +227,23 @@ img.logo {
 
 .cc-front {
     z-index: 2;
-    @include cc-background-color;
-    justify-content: center;
-    
-    img {
-        width: 70%;
-    }
+    @include background-color;
 }
 
 .cc-back {
     transform: rotateY(180deg);
     z-index: 0;
-    @include cc-background-color;
+    @include background-color;
+
+    flex-direction: column;
+
+    img {
+        width: $cc-w-rel * $cc-a-w-factor;
+    }
+
+    a {
+        font-size: $cc-w-rel * $cc-a-w-factor;
+    }
 }
 
 
@@ -313,8 +320,22 @@ img.logo {
     }
 
     .calling-card {
-        width: $calling-card-w-2;
-        padding-top: $calling-card-w-2 * $calling-card-aspect-raio;
+        width: $cc-w-abs;
+        height: $cc-w-abs * $cc-aspect-ratio;
+
+        h1 {
+            font-size: $cc-w-abs * $cc-h1-w-factor;
+        }
+    }
+
+    .cc-back {
+        img {
+            width: $cc-w-abs * $cc-a-w-factor;
+        }
+
+        a {
+            font-size: $cc-w-abs * $cc-a-w-factor;
+        }
     }
 }
 
