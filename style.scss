@@ -40,9 +40,12 @@ $cc-a-w-factor: .8 / 13;
     transform: translate(-50%, -50%);    
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
 html, body {
     height: 100%;
-    overflow: hidden;  
+    overflow: hidden;
+    font-family: 'Lora', serif;  
 }
   
 .parallax { 
@@ -87,9 +90,14 @@ html, body {
 .content {
     width: 95%;
     margin: 0 auto 68px auto;
-    background: #f0f0f0;
+    @include background-color;
     @include shadow;
     padding: 30px; 
+}
+
+h1, h2, {
+    font-weight: 700 !important;
+    color: $primary-color !important;
 }
 
 p {
@@ -129,13 +137,6 @@ p {
     margin: 60px 0 60px 0;
 }
 
-/*#hobby,
-#lavoro {
-    .photo {
-        width: 50%;        
-    }
-}*/
-
 .photo {
     position: relative;
 }
@@ -163,7 +164,7 @@ p {
 }
 
 #coming-soon {
-    background-color: #c9c9c9;
+    @include background-color;
 
     h1 {
         text-align: center;
